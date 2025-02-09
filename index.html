@@ -13,31 +13,19 @@
             </div>
             <div class="buttons">
                 <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="playSound()">No</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton(); playSound()">No</button>
 
                 <audio id="noSound" preload="auto" loop>
                     <source src="audio/trollolol_df5WIDo.mp3" type="audio/mpeg">
                 </audio>
 
                 <script>
-                    // Fonction pour jouer le son après un clic sur le bouton "No"
-                    function playSound() {
-                        var sound = document.getElementById('noSound');
-                        // Joue le son uniquement après l'interaction de l'utilisateur
-                        sound.play().then(() => {
-                            console.log("Audio playing successfully");
-                        }).catch(error => {
-                            console.log("Autoplay blocked: ", error);
-                            alert("Please click to play the sound"); // Demande un clic pour autoriser le son
-                        });
-                    }
-
-                    // Fonction pour aller à la page "yes.html"
                     function nextPage() {
+                        // Flag pour jouer le son dans la page suivante
+                        localStorage.setItem('playSound', 'true');
                         window.location.href = "yes.html";
                     }
 
-                    // Fonction pour déplacer le bouton "No" de manière aléatoire
                     function moveButton() {
                         var button = document.getElementById('noButton');
                         var x = Math.random() * (window.innerWidth - button.offsetWidth) - 85;
