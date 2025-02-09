@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="./yes_style.css">
-        <script src="hearts.js" defer></script>
     </head> 
     <body>
         <div class="container">
@@ -15,31 +14,26 @@
                 <source src="audio/george-micael-wham-careless-whisper-1.mp3" type="audio/mpeg">
             </audio>
 
-            
+            <!-- Only the 'Yes' button now -->
+            <button id="yesButton" class="btn" onclick="playSound()">Yes</button>
 
             <script>
-                // Ensuring the button triggers the sound
-                document.getElementById('playButton').addEventListener('click', function() {
+                // Function to play the sound when the "Yes" button is clicked
+                function playSound() {
                     let audio = document.getElementById('victorySound');
                     audio.play().then(() => {
                         console.log("Audio playing successfully");
                     }).catch(error => {
                         console.log("Autoplay blocked: ", error);
                     });
-                });
+                }
 
-                window.onload = function() {
-                    // Simulate a click to autoplay sound when the page loads
-                    document.getElementById('playButton').click();
-                };
-            </script>
-
-            <script>
                 const canvas = document.getElementById('heartsCanvas');
                 const ctx = canvas.getContext('2d');
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
                 let hearts = [];
+
                 class Heart {
                     constructor() {
                         this.x = Math.random() * canvas.width;
@@ -47,12 +41,14 @@
                         this.size = Math.random() * 10 + 5;
                         this.speedY = Math.random() * 2 + 1;
                     }
+
                     update() {
                         this.y -= this.speedY;
                         if (this.y < 0) {
                             this.y = canvas.height;
                         }
                     }
+
                     draw() {
                         ctx.fillStyle = 'red';
                         ctx.beginPath();
@@ -81,4 +77,4 @@
             </script>
         </div>
     </body> 
-</html>
+</html> 
