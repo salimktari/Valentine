@@ -14,7 +14,7 @@
             </div>
             <div class="buttons">
                 <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton(); playSound()">No</button>
 
                 <audio id="noSound" preload="auto" loop>
                     <source src="audio/trollolol_df5WIDo.mp3" type="audio/mpeg">
@@ -43,7 +43,6 @@
                         button.style.top = `${y}px`;
                         button.style.transform = `rotate(${Math.random() * 360}deg)`;
                         button.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 80%)`;
-                        sound.play();
                     }
                 </script>
             </div>
