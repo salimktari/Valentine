@@ -15,7 +15,7 @@
             </audio>
 
             <script>
-                // Check if the playSound flag is set in localStorage
+                // Autoplay the sound when the page loads
                 window.onload = function() {
                     if(localStorage.getItem('playSound') === 'true') {
                         let audio = document.getElementById('victorySound');
@@ -24,7 +24,7 @@
                         }).catch(error => {
                             console.log("Autoplay blocked: ", error);
                         });
-                        // Clear the playSound flag
+                        // Clear the flag in localStorage after playing the sound
                         localStorage.removeItem('playSound');
                     }
                 }
