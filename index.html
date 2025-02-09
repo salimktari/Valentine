@@ -17,8 +17,11 @@
             <div class = "buttons">
                 <button class="btn" id = "yesButton" onclick="nextPage()">Yes</button>
                 <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
-                <audio id="noSound" src="audio/trollolol_df5WIDo.mp3" loop></audio>
-                <script>
+
+                <audio id="noSound" preload="auto" loop>
+                    <source src="audio/trollolol_df5WIDo.mp3" type="audio/mpeg">
+                </audio>
+                                <script>
                     function nextPage() {
                         window.location.href = "yes.html";
                     }
@@ -33,6 +36,10 @@
                         button.style.transform = `rotate(${Math.random() * 360}deg)`;
                         button.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 80%)`;
                         sound.play();
+                        document.getElementById("playButton").addEventListener("click", function() {
+    document.getElementById("victorySound").play();
+});
+
                     }
                 </script>
                 <!-- <script>
