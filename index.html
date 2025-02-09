@@ -16,11 +16,21 @@
             </div>
             <div class = "buttons">
                 <button class="btn" id = "yesButton" onclick="nextPage()">Yes</button>
-                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton(); playSound()">No</button>
 
                 <audio id="noSound" preload="auto" loop>
                     <source src="audio/trollolol_df5WIDo.mp3" type="audio/mpeg">
                 </audio>
+
+
+                <script>
+                    function playSound() {
+                        var sound = document.getElementById('noSound');
+                        sound.play().then(() => {
+                            console.log("Audio playing successfully");
+                        }).catch(error => console.log("Autoplay blocked: ", error));
+                    }
+                </script>
                                 <script>
                     function nextPage() {
                         window.location.href = "yes.html";
